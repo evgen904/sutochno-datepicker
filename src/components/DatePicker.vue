@@ -377,8 +377,11 @@
         this.$parent.$emit('inputChanged', this.inputValue);
       },
       handleOutsideClick() {
-        if (this.isOpen) {
+        if (this.isOpen || event.target.classList.contains('btn-show-datepicker') == false) {
           this.hideDatepicker();
+        }
+        else {
+          this.isOpen = true;
         }
       },
       hideDatepicker() {
@@ -937,14 +940,14 @@
             }
 
             &:first-child {
-                background: transparent url('mdash.svg') no-repeat right center / 8px;
+                background: transparent url('mdash.svg') no-repeat right center / 9px;
                 padding-right: 14px;
                 border-top-left-radius: 3px;
                 border-bottom-left-radius: 3px;
             }
 
             &:last-child {
-              background: transparent url('mdash.svg') no-repeat left center / 8px;
+              background: transparent url('mdash.svg') no-repeat left center / 9px;
               padding-left: 4px;
               border-top-right-radius: 3px;
               border-bottom-right-radius: 3px;
